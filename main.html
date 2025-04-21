@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="assets/estilo.css" />
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <link rel="shortcut icon" href="public/img/logo-favicon.png" type="image/x-icon">
+  <style>
+    .carousel-inner img {
+      max-height: 700px;
+      object-fit: cover;
+    }
+  </style>
+  <title>Ejemplo 1</title>
+</head>
+
+<body>
+  <header>
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+          aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#" aria-current="page">Home <span
+                  class="visually-hidden">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="#">Action 1</a>
+                <a class="dropdown-item" href="#">Action 2</a>
+              </div>
+            </li>
+          </ul>
+          <form class="d-flex my-2 my-lg-0">
+            <input class="form-control me-sm-2" type="text" placeholder="Search" />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </nav>
+    </div>
+
+    <h1 class="display-4"><u>Bienvenidos a Taller de Programación I</u></h1>
+  </header>
+
+  <main>
+    <section class="container">
+      <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true"
+            aria-label="First slide"></li>
+          <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
+          <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active">
+            <img src="public/img/black-friday.jpg" class="w-100 d-block" alt="First slide" />
+          </div>
+          <div class="carousel-item">
+            <img src="public/img/negro-amarillo.jpg" class="w-100 d-block" alt="Second slide" />
+          </div>
+          <div class="carousel-item">
+            <img src="public/img/Black-Backgrounds-HD.jpg" class="w-100 d-block" alt="Third slide" />
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+    </section>
+
+    <section class="container" style="
+    background-color: black;
+    background-image: url(public/img/fondo-home.jpg);
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;">
+      <div>
+        <p class="h1" style="color:gray;">Sobre nosotros</p>
+      </div>
+      <div style="text-align: justify;">
+        <p class="ms-5">
+          Somos una empresa que se dedica a la venta de relojes de mesa y pared
+          con diseños únicos e innovadores. Utilizamos materia prima de calidad.
+          Elaboramos productos a la medida del cliente.
+        </p>
+        <p class="ms-4">
+          integrantes:
+          1,2,3,4
+        </p>
+        <p class="ms-3">
+          historia:
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <nav>
+      <ul>
+        <li style="background-color: darkgrey">
+          <a href="https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&ia=chat&duckai=1">duckai</a>
+        </li>
+        <li><a href="#">sobre nosotros</a></li>
+        <li><a href="#">contacto</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+</body>
+
+</html>
