@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="http://localhost/TryHardWare/home.html">
+        <a class="navbar-brand" href="home.html">
             <img src="public/img/2deepimg-1745698866795.png" alt="TryHardWare Logo" height="30"
                 class="d-inline-block align-text-top" />
         </a>
@@ -12,41 +12,67 @@
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" href="home.html" aria-current="page">Inicio <span
-                            class="visually-hidden">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="FAQ.html">Preguntas Frecuentes</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                        aria-haspopup="true" aria-expanded="false">Categorías</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
+                        <a class="dropdown-item" href="pc.html">PC</a>
+                        <a class="dropdown-item" href="laptop.html">Laptop</a>
+                        <a class="dropdown-item" href="monitor.html">Monitor</a>
+                        <a class="dropdown-item" href="teclado.html">Teclado</a>
+                        <a class="dropdown-item" href="mouse.html">Mouse</a>
+                        <a class="dropdown-item" href="auriculares.html">Auriculares</a>
+                        <a class="dropdown-item" href="placas-video.html">Placas de video</a>
+                        <a class="dropdown-item" href="placa-madre.html">Placa Madre</a>
+                        <a class="dropdown-item" href="ram.html">RAM</a>
+                        <a class="dropdown-item" href="almacenamiento.html">Almacenamiento</a>
+                        <a class="dropdown-item" href="fuente.html">Fuente</a>
                     </div>
                 </li>
             </ul>
-            <form class="d-flex my-2 my-lg-0">
-                <input class="form-control me-sm-2" type="text" placeholder="Search" />
+            <form class="d-flex my-2 my-lg-0" role="search">
+                <input class="form-control me-sm-2" type="search" placeholder="Buscar productos..."
+                    aria-label="Buscar" />
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                    Búsqueda
+                    Buscar
                 </button>
             </form>
-            <!--link a carrito-->
+            <!-- Carrito -->
             <div class="d-flex align-items-center ms-3">
-                <a href="http://localhost/TryHardWare/cart.html" class="btn btn-outline-light"><img
-                        src="public/img/icons/carrito.png" alt="carrito" height="30"></a>
+                <a href="cart.html" class="btn btn-outline-light" title="Carrito">
+                    <img src="public/img/icons/carrito.png" alt="carrito" height="30">
+                </a>
             </div>
-
-            <!--link a usuario-->
-            <div class="d-flex align-items-center ms-3">
-                <!--si ya esta registrado muestra un logo clickeable para acceder a cuenta-->
-                <a href="http://localhost/TryHardWare/user.html" class="btn btn-outline-light ms-auto"><img
-                src="public/img/icons/usuario.png" alt="User Icon" height="30"></a>
-                <a href="http://localhost/TryHardWare/login.html" class="btn btn-outline-light ms-2">Iniciar Sesión</a>
-                <a href="http://localhost/TryHardWare/register.html" class="btn btn-outline-light ms-2">Registrarse</a>
+            <!-- Usuario -->
+            <div class="d-flex align-items-center ms-3 position-relative">
+                <a href="#" id="userIcon" class="btn btn-outline-light ms-auto" title="Usuario">
+                    <img src="public/img/icons/usuario.png" alt="User Icon" height="30">
+                </a>
+                <div id="userOptions" class="position-absolute bg-dark rounded shadow p-2"
+                    style="top: 40px; right: 0; display: none; z-index: 1000;">
+                    <a href="login.html" class="btn btn-outline-light w-100 mb-2">Iniciar Sesión</a>
+                    <a href="register.html" class="btn btn-outline-light w-100">Registrarse</a>
+                    <a href="user.html" class="btn btn-outline-light w-100 mt-2">Mi Cuenta</a>
+                </div>
             </div>
         </div>
     </div>
 </nav>
+<script>
+    // Mostrar/ocultar opciones de usuario al hacer clic en el icono
+    document.addEventListener('DOMContentLoaded', function () {
+        const userIcon = document.getElementById('userIcon');
+        const userOptions = document.getElementById('userOptions');
+        userIcon.addEventListener('click', function (e) {
+            e.preventDefault();
+            userOptions.style.display = userOptions.style.display === 'block' ? 'none' : 'block';
+        });
+        document.addEventListener('click', function (e) {
+            if (!userIcon.contains(e.target) && !userOptions.contains(e.target)) {
+                userOptions.style.display = 'none';
+            }
+        });
+    });
+</script>
