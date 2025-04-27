@@ -11,10 +11,86 @@
     <header>
         <div id="navbar"></div>
     </header>
-    <main>
-        <div class="container py-5">
-            <h1>Política de Privacidad</h1>
-            <p>Detalles sobre la privacidad y el uso de datos.</p>
+    <!-- Contenido principal -->
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm mb-5">
+                    <div class="card-body">
+                        <h2 class="card-title mb-4">Política de Privacidad</h2>
+                        <p>En TryHardWare nos comprometemos a proteger y respetar su privacidad. La presente Política de
+                            Privacidad describe cómo recopilamos, utilizamos y protegemos su información personal al
+                            visitar y utilizar nuestro sitio web.</p>
+
+                        <h4 class="mt-4">1. Información que Recopilamos</h4>
+                        <ul>
+                            <li><strong>Datos personales:</strong> Nombre, dirección de correo electrónico, dirección
+                                física, número de teléfono, y otros datos necesarios para el proceso de compra y
+                                atención al cliente.</li>
+                            <li><strong>Datos de navegación:</strong> Información sobre el uso del sitio web, incluyendo
+                                datos de cookies, dirección IP, tipo de navegador, páginas visitadas y tiempo de
+                                permanencia.</li>
+                        </ul>
+
+                        <h4 class="mt-4">2. Uso de la Información</h4>
+                        <ul>
+                            <li>Procesar y gestionar sus pedidos y solicitudes.</li>
+                            <li>Mejorar nuestro sitio web y los servicios ofrecidos.</li>
+                            <li>Realizar análisis internos para optimizar la experiencia del usuario.</li>
+                            <li>Enviarle comunicaciones relacionadas con pedidos, promociones y noticias de TryHardWare,
+                                siempre que usted lo haya autorizado.</li>
+                        </ul>
+
+                        <h4 class="mt-4">3. Cookies y Tecnologías Similares</h4>
+                        <p>Utilizamos cookies y otras tecnologías para mejorar su experiencia en nuestro sitio web,
+                            recordar sus preferencias y analizar el tráfico. Usted puede configurar su navegador para
+                            rechazar cookies, pero es posible que algunas funciones del sitio se vean afectadas.</p>
+
+                        <h4 class="mt-4">4. Compartir y Divulgar la Información</h4>
+                        <ul>
+                            <li>Su información personal no será vendida, intercambiada ni transferida a terceros sin su
+                                consentimiento, excepto en los casos necesarios para procesar su pedido (por ejemplo,
+                                empresas de envío) o cuando lo exija la ley.</li>
+                            <li>Podemos divulgar información sin datos personales de identificación para fines
+                                estadísticos o de análisis.</li>
+                        </ul>
+
+                        <h4 class="mt-4">5. Seguridad de la Información</h4>
+                        <p>Implementamos medidas de seguridad técnicas y organizativas para proteger su información
+                            personal contra pérdida, uso indebido, acceso no autorizado, divulgación o alteración. Sin
+                            embargo, ningún sistema es completamente infalible y, por ello, no podemos garantizar la
+                            seguridad absoluta de la información transmitida a través de nuestro sitio.</p>
+
+                        <h4 class="mt-4">6. Derechos del Usuario</h4>
+                        <ul>
+                            <li>Acceder a su información personal.</li>
+                            <li>Rectificar cualquier dato incorrecto o incompleto.</li>
+                            <li>Solicitar la eliminación de sus datos personales, siempre que no existan obligaciones
+                                legales que requieran su conservación.</li>
+                            <li>Oponerse al tratamiento de sus datos o solicitar su limitación.</li>
+                        </ul>
+                        <p>Para ejercer estos derechos o si tiene preguntas sobre nuestra política de privacidad,
+                            contáctenos a través de los medios indicados en la sección de contacto.</p>
+
+                        <h4 class="mt-4">7. Cambios en la Política de Privacidad</h4>
+                        <p>Podremos actualizar esta Política de Privacidad periódicamente. Cualquier cambio se publicará
+                            en esta página, y, en caso de modificaciones significativas, se le notificará de forma
+                            apropiada.</p>
+
+                        <h4 class="mt-4">8. Contacto</h4>
+                        <p>Para cualquier consulta o solicitud relacionada con esta Política de Privacidad, puede
+                            contactarnos:</p>
+                        <ul>
+                            <li>Correo electrónico: <a href="mailto:soporte@tryhardware.com">soporte@tryhardware.com</a>
+                            </li>
+                            <li>Teléfono: +34 123 456 789</li>
+                        </ul>
+
+                        <p class="mt-4">Al utilizar nuestro sitio web, usted acepta los términos descritos en esta
+                            Política de Privacidad.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 </body>
@@ -27,5 +103,6 @@
         .then(res => res.text())
         .then(data => document.getElementById('footer').innerHTML = data);
 </script>
+<script src="assets/js/bootstrap.min.js"></script>
 
 </html>
