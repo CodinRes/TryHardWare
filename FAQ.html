@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Preguntas Frecuentes - TryHardWare</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header>
+        <div id="navbar"></div>
+    </header>
+    <main>
+        <div class="container py-5">
+            <h1>Preguntas Frecuentes</h1>
+            <p>Respuestas a las dudas más comunes de los clientes.</p>
+        </div>
+    </main>
+</body>
+<div id="footer"></div>
+<script>
+    fetch('navbar.html')
+        .then(res => res.text())
+        .then(data => document.getElementById('navbar').innerHTML = data);
+    fetch('footer.html')
+        .then(res => res.text())
+        .then(data => document.getElementById('footer').innerHTML = data);
+</script>
+
+</html>
