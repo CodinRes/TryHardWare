@@ -11,25 +11,25 @@
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="FAQ.html">Preguntas Frecuentes</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Categorías</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="pc.html">PC</a>
-                        <a class="dropdown-item" href="laptop.html">Laptop</a>
-                        <a class="dropdown-item" href="monitor.html">Monitor</a>
-                        <a class="dropdown-item" href="teclado.html">Teclado</a>
-                        <a class="dropdown-item" href="mouse.html">Mouse</a>
-                        <a class="dropdown-item" href="auriculares.html">Auriculares</a>
-                        <a class="dropdown-item" href="placas-video.html">Placas de video</a>
-                        <a class="dropdown-item" href="placa-madre.html">Placa Madre</a>
-                        <a class="dropdown-item" href="ram.html">RAM</a>
-                        <a class="dropdown-item" href="almacenamiento.html">Almacenamiento</a>
-                        <a class="dropdown-item" href="fuente.html">Fuente</a>
+                        <a class="dropdown-item" href="#">PC</a>
+                        <a class="dropdown-item" href="#">Laptop</a>
+                        <a class="dropdown-item" href="#">Monitor</a>
+                        <a class="dropdown-item" href="#">Teclado</a>
+                        <a class="dropdown-item" href="#">Mouse</a>
+                        <a class="dropdown-item" href="#">Auriculares</a>
+                        <a class="dropdown-item" href="#">Placas de video</a>
+                        <a class="dropdown-item" href="#">Placa Madre</a>
+                        <a class="dropdown-item" href="#">RAM</a>
+                        <a class="dropdown-item" href="#">Almacenamiento</a>
+                        <a class="dropdown-item" href="#">Fuente</a>
                     </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="FAQ.html">Preguntas Frecuentes</a>
                 </li>
             </ul>
             <form class="d-flex my-2 my-lg-0" role="search">
@@ -60,19 +60,3 @@
         </div>
     </div>
 </nav>
-<script>
-    // Mostrar/ocultar opciones de usuario al hacer clic en el icono
-    document.addEventListener('DOMContentLoaded', function () {
-        const userIcon = document.getElementById('userIcon');
-        const userOptions = document.getElementById('userOptions');
-        userIcon.addEventListener('click', function (e) {
-            e.preventDefault();
-            userOptions.style.display = userOptions.style.display === 'block' ? 'none' : 'block';
-        });
-        document.addEventListener('click', function (e) {
-            if (!userIcon.contains(e.target) && !userOptions.contains(e.target)) {
-                userOptions.style.display = 'none';
-            }
-        });
-    });
-</script>

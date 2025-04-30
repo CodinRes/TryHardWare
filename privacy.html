@@ -139,14 +139,8 @@
       </div>
     </main>
     <div id="footer"></div>
-    <script>
-      fetch("navbar.html")
-        .then((res) => res.text())
-        .then((data) => (document.getElementById("navbar").innerHTML = data));
-      fetch("footer.html")
-        .then((res) => res.text())
-        .then((data) => (document.getElementById("footer").innerHTML = data));
-    </script>
+    
     <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/modular-navbar-footer.js"></script>
   </body>
 </html>

@@ -4,17 +4,14 @@
     <meta charset="UTF-8" />
     <title>Sobre Nosotros - TryHardWare</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link
-      rel="shortcut icon"
-      href="public/img/logo-favicon.png"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="public/img/logo-favicon.png" type="image/x-icon" />
   </head>
 
   <body class="d-flex flex-column min-vh-100">
     <header>
       <div id="navbar"></div>
     </header>
+    
     <!-- Sección de Contenido Principal -->
     <main class="flex-grow-1 container my-5">
       <!-- Nuestra Historia -->
@@ -152,13 +149,8 @@
       </section>
     </main>
     <div id="footer"></div>
-    <script>
-      fetch("navbar.html")
-        .then((res) => res.text())
-        .then((data) => (document.getElementById("navbar").innerHTML = data));
-      fetch("footer.html")
-        .then((res) => res.text())
-        .then((data) => (document.getElementById("footer").innerHTML = data));
-    </script>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/modular-navbar-footer.js"></script>
   </body>
 </html>
