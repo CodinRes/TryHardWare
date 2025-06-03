@@ -31,7 +31,7 @@ Tienda online de hardware y tecnología, desarrollada con [CodeIgniter 4](https:
 
 1. Extraer en la carpeta htdocs de XAMPP
 
-2. Modificar en la misma carpeta el archivo index.php para que en la linea `header('Location: '.$uri.'/[proyecto]/[pagina]');` tenga la localizacion de la pagina principal
+2. Modificar en la misma carpeta el archivo index.php para que en la linea `header('Location: '.$uri.'/[proyecto]/[pagina]');` tenga la localizacion de la carpeta public
 
 ## Créditos
 

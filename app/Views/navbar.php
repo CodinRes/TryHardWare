@@ -29,6 +29,9 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="<?= site_url('discounts') ?>">Descuentos</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="<?= site_url('faq') ?>">Preguntas Frecuentes</a>
                 </li>
             </ul>

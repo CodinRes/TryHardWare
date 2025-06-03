@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>">
-    <link rel="shortcut icon" href="<?= base_url('assets/img/logo-favicon.png') ?>" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?= base_url('img/logo-favicon.png') ?>" type="image/x-icon" />
 
     <style>
         /*.carousel-inner img {
@@ -61,8 +61,7 @@
         <section>
             <div id="carouselId" class="carousel slide mb-5" data-bs-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true"
-                        aria-label="First slide"></li>
+                    <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
                     <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
                     <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
                 </ol>
@@ -302,7 +301,7 @@
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
     <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
-    <script src="<?= base_url('assets/modular-navbar-footer.js') ?>"></script>
+    
 </body>
 
 </html>
