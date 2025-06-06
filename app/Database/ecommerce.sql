@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 03, 2025 at 11:08 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 06-06-2025 a las 05:59:12
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,19 +18,18 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ecommerce`
+-- Base de datos: `ecommerce`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carritos`
+-- Estructura de tabla para la tabla `carritos`
 --
 
 CREATE TABLE `carritos` (
   `id_carrito` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
-  `id_producto` int(11) NOT NULL,
   `creado_en` timestamp NOT NULL DEFAULT current_timestamp(),
   `cantidad_total` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -38,19 +37,18 @@ CREATE TABLE `carritos` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorias`
+-- Estructura de tabla para la tabla `categorias`
 --
 
 CREATE TABLE `categorias` (
   `id_categoria` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
-  `id_categoria_padre` int(11) DEFAULT NULL
+  `nombre` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detalles_orden`
+-- Estructura de tabla para la tabla `detalles_orden`
 --
 
 CREATE TABLE `detalles_orden` (
@@ -64,7 +62,7 @@ CREATE TABLE `detalles_orden` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `direcciones`
+-- Estructura de tabla para la tabla `direcciones`
 --
 
 CREATE TABLE `direcciones` (
@@ -79,7 +77,7 @@ CREATE TABLE `direcciones` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `facturas`
+-- Estructura de tabla para la tabla `facturas`
 --
 
 CREATE TABLE `facturas` (
@@ -99,7 +97,20 @@ CREATE TABLE `facturas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ordenes`
+-- Estructura de tabla para la tabla `items_carrito`
+--
+
+CREATE TABLE `items_carrito` (
+  `id_item_carrito` int(11) NOT NULL,
+  `id_carrito` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ordenes`
 --
 
 CREATE TABLE `ordenes` (
@@ -112,7 +123,7 @@ CREATE TABLE `ordenes` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pagos`
+-- Estructura de tabla para la tabla `pagos`
 --
 
 CREATE TABLE `pagos` (
@@ -127,7 +138,7 @@ CREATE TABLE `pagos` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `personas`
+-- Estructura de tabla para la tabla `personas`
 --
 
 CREATE TABLE `personas` (
@@ -141,7 +152,7 @@ CREATE TABLE `personas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `productos`
+-- Estructura de tabla para la tabla `productos`
 --
 
 CREATE TABLE `productos` (
@@ -149,18 +160,17 @@ CREATE TABLE `productos` (
   `nombre` varchar(150) NOT NULL,
   `descripcion` text DEFAULT NULL,
   `id_categoria` int(11) DEFAULT NULL,
-  `precio` decimal(10,2) NOT NULL,
+  `precio` double NOT NULL,
   `stock` int(11) DEFAULT 0,
   `marca` varchar(100) DEFAULT NULL,
   `sku` varchar(50) DEFAULT NULL,
-  `url_imagen` varchar(255) DEFAULT NULL,
-  `creado_en` timestamp NOT NULL DEFAULT current_timestamp()
+  `url_imagen` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -175,26 +185,24 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `carritos`
+-- Indices de la tabla `carritos`
 --
 ALTER TABLE `carritos`
   ADD PRIMARY KEY (`id_carrito`),
-  ADD KEY `id_usuario` (`id_usuario`),
-  ADD KEY `id_producto` (`id_producto`);
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indexes for table `categorias`
+-- Indices de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  ADD PRIMARY KEY (`id_categoria`),
-  ADD KEY `id_categoria_padre` (`id_categoria_padre`);
+  ADD PRIMARY KEY (`id_categoria`);
 
 --
--- Indexes for table `detalles_orden`
+-- Indices de la tabla `detalles_orden`
 --
 ALTER TABLE `detalles_orden`
   ADD PRIMARY KEY (`id_detalle`),
@@ -202,13 +210,13 @@ ALTER TABLE `detalles_orden`
   ADD KEY `id_producto` (`id_producto`);
 
 --
--- Indexes for table `direcciones`
+-- Indices de la tabla `direcciones`
 --
 ALTER TABLE `direcciones`
   ADD PRIMARY KEY (`id_direccion`);
 
 --
--- Indexes for table `facturas`
+-- Indices de la tabla `facturas`
 --
 ALTER TABLE `facturas`
   ADD PRIMARY KEY (`id_factura`),
@@ -216,28 +224,37 @@ ALTER TABLE `facturas`
   ADD KEY `fk_factura_orden` (`id_orden`);
 
 --
--- Indexes for table `ordenes`
+-- Indices de la tabla `items_carrito`
+--
+ALTER TABLE `items_carrito`
+  ADD PRIMARY KEY (`id_item_carrito`),
+  ADD KEY `id_carrito` (`id_carrito`),
+  ADD KEY `id_producto` (`id_producto`);
+
+--
+-- Indices de la tabla `ordenes`
 --
 ALTER TABLE `ordenes`
   ADD PRIMARY KEY (`id_orden`),
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indexes for table `pagos`
+-- Indices de la tabla `pagos`
 --
 ALTER TABLE `pagos`
   ADD PRIMARY KEY (`id_pago`),
   ADD KEY `fk_pago_orden` (`id_orden`);
 
 --
--- Indexes for table `personas`
+-- Indices de la tabla `personas`
 --
 ALTER TABLE `personas`
   ADD PRIMARY KEY (`id_persona`),
+  ADD UNIQUE KEY `telefono` (`telefono`),
   ADD KEY `id_direccion` (`id_direccion`);
 
 --
--- Indexes for table `productos`
+-- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`id_producto`),
@@ -245,134 +262,141 @@ ALTER TABLE `productos`
   ADD KEY `id_categoria` (`id_categoria`);
 
 --
--- Indexes for table `usuarios`
+-- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`),
   ADD UNIQUE KEY `nombre_usuario` (`nombre_usuario`),
+  ADD UNIQUE KEY `contrasena_hash` (`contrasena_hash`),
   ADD UNIQUE KEY `correo_acceso` (`correo_acceso`),
   ADD KEY `id_persona` (`id_persona`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `carritos`
+-- AUTO_INCREMENT de la tabla `carritos`
 --
 ALTER TABLE `carritos`
   MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `categorias`
+-- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
   MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `detalles_orden`
+-- AUTO_INCREMENT de la tabla `detalles_orden`
 --
 ALTER TABLE `detalles_orden`
   MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `direcciones`
+-- AUTO_INCREMENT de la tabla `direcciones`
 --
 ALTER TABLE `direcciones`
   MODIFY `id_direccion` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `facturas`
+-- AUTO_INCREMENT de la tabla `facturas`
 --
 ALTER TABLE `facturas`
   MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `ordenes`
+-- AUTO_INCREMENT de la tabla `items_carrito`
+--
+ALTER TABLE `items_carrito`
+  MODIFY `id_item_carrito` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `ordenes`
 --
 ALTER TABLE `ordenes`
   MODIFY `id_orden` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pagos`
+-- AUTO_INCREMENT de la tabla `pagos`
 --
 ALTER TABLE `pagos`
   MODIFY `id_pago` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `personas`
+-- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
   MODIFY `id_persona` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `productos`
+-- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
   MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `carritos`
+-- Filtros para la tabla `carritos`
 --
 ALTER TABLE `carritos`
-  ADD CONSTRAINT `carritos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`),
-  ADD CONSTRAINT `uso de producto` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`);
+  ADD CONSTRAINT `carritos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
 
 --
--- Constraints for table `categorias`
---
-ALTER TABLE `categorias`
-  ADD CONSTRAINT `categorias_ibfk_1` FOREIGN KEY (`id_categoria_padre`) REFERENCES `categorias` (`id_categoria`);
-
---
--- Constraints for table `detalles_orden`
+-- Filtros para la tabla `detalles_orden`
 --
 ALTER TABLE `detalles_orden`
   ADD CONSTRAINT `detalles_orden_ibfk_1` FOREIGN KEY (`id_orden`) REFERENCES `ordenes` (`id_orden`),
   ADD CONSTRAINT `detalles_orden_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`);
 
 --
--- Constraints for table `facturas`
+-- Filtros para la tabla `facturas`
 --
 ALTER TABLE `facturas`
   ADD CONSTRAINT `fk_factura_orden` FOREIGN KEY (`id_orden`) REFERENCES `ordenes` (`id_orden`);
 
 --
--- Constraints for table `ordenes`
+-- Filtros para la tabla `items_carrito`
+--
+ALTER TABLE `items_carrito`
+  ADD CONSTRAINT `items_carrito_ibfk_1` FOREIGN KEY (`id_carrito`) REFERENCES `carritos` (`id_carrito`),
+  ADD CONSTRAINT `items_carrito_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`);
+
+--
+-- Filtros para la tabla `ordenes`
 --
 ALTER TABLE `ordenes`
   ADD CONSTRAINT `ordenes_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
 
 --
--- Constraints for table `pagos`
+-- Filtros para la tabla `pagos`
 --
 ALTER TABLE `pagos`
   ADD CONSTRAINT `fk_pago_orden` FOREIGN KEY (`id_orden`) REFERENCES `ordenes` (`id_orden`);
 
 --
--- Constraints for table `personas`
+-- Filtros para la tabla `personas`
 --
 ALTER TABLE `personas`
   ADD CONSTRAINT `direccion de persona` FOREIGN KEY (`id_direccion`) REFERENCES `direcciones` (`id_direccion`);
 
 --
--- Constraints for table `productos`
+-- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`);
 
 --
--- Constraints for table `usuarios`
+-- Filtros para la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`id_persona`);
